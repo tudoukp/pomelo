@@ -1,0 +1,16 @@
+1783 error Error: read ECONNRESET
+1783 error     at errnoException (net.js:878:11)
+1783 error     at TCP.onread (net.js:539:19)
+1784 error If you need help, you may report this log at:
+1784 error     <http://github.com/isaacs/npm/issues>
+1784 error or email it to:
+1784 error     <npm-@googlegroups.com>
+1785 error System Windows_NT 6.2.9200
+1786 error command "D:\\Program Files\\nodejs\\\\node.exe" "D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "socket.io"
+1787 error cwd E:\workspace\GitHub\pomelo
+1788 error node -v v0.10.1
+1789 error npm -v 1.2.15
+1790 error syscall read
+1791 error code ECONNRESET
+1792 error errno ECONNRESET
+1793 verbose exit [ 1, true ]

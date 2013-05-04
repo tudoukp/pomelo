@@ -4,20 +4,13 @@ var express=require("express"),
 	io=require("socket.io").listen(server);
 
 
-var channelService=require("./channelService.js")();
+require('./manager.js')(io);
 
 
-var world=channelService.getChannel("word",true);
-
-
-
-io.configure(function(){
-	io.set("authorization",function(handshakeData, callback){
-		callback(null,true);
-	})
+app.get("/",function(req,res){
+	res.sendfile(__dirname+"/index.html");
 })
 
 
-io.on("connection",function(socket){
 
-})
+server.listen(80);

@@ -1,4 +1,4 @@
-var channel=require("channel.js");
+var channel=require("./channel.js");
 
 var channels={};
 
@@ -6,14 +6,18 @@ var ChannelService=function(){
 	
 }
 
-ChannelService.prototype.getChannel(name){
-	boolean flag=arguments[1]?arguments[1]:false;
+ChannelService.prototype.getChannel=function(name){
+	//boolean flag=arguments[1]?arguments[1]:false;
 	var c=channels[name];
+
+	//console.log(c+"11")
 	if(c){
 		return c;
 	}else{
-		if(flag){
+		if(arguments[1]){
 			c=channel();
+			channels[name]=c;
+			return c;
 		}else{
 			return null;
 		}
@@ -21,7 +25,7 @@ ChannelService.prototype.getChannel(name){
 
 }
 
-ChannelService.prototype.removeChannel(name){
+ChannelService.prototype.removeChannel=function(name){
 	channels.remove(name);
 }
 

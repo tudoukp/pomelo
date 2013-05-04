@@ -3,6 +3,11 @@ var channelService=require("./channelService.js"),
 	room=require('./room.js');
 
 
+module.exports=function(){
+	return new Hall();
+}
+
+
 var rooms={};
 
 var Hall=function(){
@@ -17,18 +22,23 @@ Hall.prototype={
 	},createRoom:function(){
 		var id=generateId();
 		rooms[id]=room(id);
-	},addUser:function(user,callback){
+	},addUser:function(socket,callback){
 		var c=this.channelSer.getChannel(this.channelId,true);
 		if(c){
-			c.add(user.uid,user);
+			c.add(socket.user.uid,socket);
 		}else{
 			callback("ss");
 		}
-	},leave:function(user){
+	},leave:function(user,callback){
 		var c=this.channelSer.getChannel(this.channelId);
 		if(c){
 			c.remove(user.uid);
+			callback();
+		}else{
+			callback("err");
 		}
+	},getChannel:function(){
+		return this.channelSer.getChannel(this.channelId);
 	}
 }
 

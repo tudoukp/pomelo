@@ -20,7 +20,7 @@ var Room=function(id){
 Room.prototype={
 	init:function(){
 		this.member=generateId();  //主角
-		this.observer=generateId();  // 观察者
+		//this.observer=generateId();  // 观察者
 	},remove:function(){
 		//this.channelService;
 	},leave:function(uid){
